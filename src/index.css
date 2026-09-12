@@ -1,0 +1,17 @@
+@import "tailwindcss";
+body {
+  background-color: rgba(0, 0, 255, 0.296);
+}
+h1 {
+  font-size: larger;
+  font-weight: bolder;
+}
+h2 {
+  font-weight: bold;
+}
+h3 {
+  font-weight: 450;
+}
+span {
+  font-weight: 200;
+}
