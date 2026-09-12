@@ -1,10 +1,12 @@
 export interface Product {
+  id: number;
   title: string;
   category: string;
   price: number;
   rating: number;
   images: string[];
 }
+
 export interface PaginationProps {
   currentPage: number;
   setCurrentPage: (page: number) => void;

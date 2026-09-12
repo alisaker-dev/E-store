@@ -3,6 +3,8 @@ import { useEffect, useState, type ChangeEvent } from "react";
 import { useFilter } from "../contexts/FilterContext";
 import type { Product } from "../types/Product";
 import { Show, SignInButton, UserButton } from "@clerk/react";
+import { Link } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
 const Sidebar = () => {
   const {
@@ -25,6 +27,7 @@ const Sidebar = () => {
     "shoes",
     "shirt",
   ]);
+  const { itemCount } = useCart();
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -76,6 +79,12 @@ const Sidebar = () => {
           <UserButton />
         </Show>
       </div>
+      <Link
+        to="/cart"
+        className="mb-5 block rounded border border-blue-600 px-3 py-2 text-center text-blue-600 hover:bg-blue-50"
+      >
+        Cart ({itemCount})
+      </Link>
       {/* search products */}
       <div className="flex flex-col gap-1">
         <input

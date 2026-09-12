@@ -4,6 +4,8 @@ import axios from "axios";
 import type { Product } from "../types/Product";
 import { FaFilterCircleDollar } from "react-icons/fa6";
 import Pagination from "./Pagination";
+import { useCart } from "../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const MainContent = () => {
   const { searchQuery, selectedCategory, minPrice, maxPrice, keyword } =
@@ -14,6 +16,8 @@ const MainContent = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
   const [iserror, setIsError] = useState(false);
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -135,6 +139,23 @@ const MainContent = () => {
                 <hr />
                 <h3 className="overflow-clip">{product.title}</h3>
                 <span>${product.price}</span>
+                <div className="mt-3 flex flex-col gap-2">
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="rounded border border-blue-600 px-3 py-2 text-sm text-blue-600 hover:bg-blue-50"
+                  >
+                    Add to cart
+                  </button>
+                  <button
+                    onClick={() => {
+                      addToCart(product);
+                      navigate("/checkout");
+                    }}
+                    className="rounded bg-black px-3 py-2 text-sm text-white hover:bg-gray-800"
+                  >
+                    Buy now
+                  </button>
+                </div>
               </div>
             ))
           )}
