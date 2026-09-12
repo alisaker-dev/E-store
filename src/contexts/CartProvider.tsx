@@ -1,9 +1,10 @@
 import { useState, type ReactNode } from "react";
 import { CartContext } from "./CartContext";
+import type { CartItem } from "../types/Cart";
 import type { Product } from "../types/Product";
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [items, setItems] = useState<import("../types/Product").CartItem[]>([]);
+  const [items, setItems] = useState<CartItem[]>([]);
 
   const addToCart = (product: Product) => {
     setItems((currentItems) => {

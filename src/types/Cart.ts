@@ -1,3 +1,5 @@
+import type { Product } from "./Product";
+
 export interface CartContextType {
   items: CartItem[];
   itemCount: number;
