@@ -88,7 +88,7 @@ const MainContent = () => {
       <main className="min-w-0 p-4 sm:p-6">
         <div className="relative my-5">
           <button
-            className="border px-4 py-2 rounded-full flex items-center"
+            className="rounded-full border border-slate-300 bg-white/80 px-4 py-2 flex items-center hover:border-teal-600 hover:bg-teal-50"
             onClick={() => setDropdownOpen((prev) => !prev)}
           >
             <FaFilterCircleDollar className="mr-1" />
@@ -97,22 +97,22 @@ const MainContent = () => {
               : filter.charAt(0).toLowerCase() + filter.slice(1)}
           </button>
           {dropdownOpen && (
-            <div className="absolute bg-white border border-gray-300 rounded mt-2 w-full sm:w-40">
+            <div className="filter-menu absolute mt-2 w-full rounded border sm:w-40">
               <button
                 onClick={() => setFilter("cheap")}
-                className="block px-4 py-2 w-full text-left hover:bg-gray-200"
+                className="block w-full px-4 py-2 text-left hover:bg-teal-50"
               >
                 Cheap
               </button>
               <button
                 onClick={() => setFilter("expensive")}
-                className="block px-4 py-2 w-full text-left hover:bg-gray-200"
+                className="block w-full px-4 py-2 text-left hover:bg-teal-50"
               >
                 Expensive
               </button>
               <button
                 onClick={() => setFilter("popular")}
-                className="block px-4 py-2 w-full text-left hover:bg-gray-200"
+                className="block w-full px-4 py-2 text-left hover:bg-teal-50"
               >
                 Popular
               </button>
@@ -129,7 +129,7 @@ const MainContent = () => {
             currentItems.map((product, key) => (
               <div
                 key={key}
-                className="flex min-w-0 flex-col rounded border p-3"
+                className="surface-card flex min-w-0 flex-col rounded border p-3"
               >
                 <img
                   src={`${URL.parse(product.images[0])}`}
@@ -142,7 +142,7 @@ const MainContent = () => {
                 <div className="mt-3 flex flex-col gap-2">
                   <button
                     onClick={() => addToCart(product)}
-                    className="rounded border border-blue-600 px-3 py-2 text-sm text-blue-600 hover:bg-blue-50"
+                    className="secondary-action rounded border px-3 py-2 text-sm"
                   >
                     Add to cart
                   </button>
@@ -151,7 +151,7 @@ const MainContent = () => {
                       addToCart(product);
                       navigate("/checkout");
                     }}
-                    className="rounded bg-black px-3 py-2 text-sm text-white hover:bg-gray-800"
+                    className="primary-action rounded px-3 py-2 text-sm text-white"
                   >
                     Buy now
                   </button>

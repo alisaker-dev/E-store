@@ -65,7 +65,7 @@ const Sidebar = () => {
     <aside className="w-full shrink-0 border-b border-gray-300 p-4 md:w-64 md:border-b-0 md:border-r md:p-5">
       <div className="mb-4 flex items-center justify-between gap-3">
         {/* logo */}
-        <h1 className="my-2 w-fit rounded-full border-2 border-dashed border-amber-100 bg-blue-300 p-2 italic font-serif">
+        <h1 className="brand-mark my-2 w-fit rounded-full border-2 border-dashed p-2 italic font-serif">
           E-Store
         </h1>
         <Show when="signed-out">
@@ -81,7 +81,7 @@ const Sidebar = () => {
       </div>
       <Link
         to="/cart"
-        className="mb-5 block rounded border border-blue-600 px-3 py-2 text-center text-blue-600 hover:bg-blue-50"
+        className="secondary-action mb-5 block rounded border px-3 py-2 text-center"
       >
         Cart ({itemCount})
       </Link>
@@ -138,7 +138,7 @@ const Sidebar = () => {
           <button
             key={index}
             onClick={() => handleKeyword(item)}
-            className={`ml-2 mb-3 p-2 text-left border rounded hover:bg-gray-200 ${keyword === item && "bg-gray-300"}`}
+            className={`keyword-chip ml-2 mb-3 rounded border p-2 text-left ${keyword === item && "bg-teal-100"}`}
           >
             {item.toUpperCase()}
           </button>

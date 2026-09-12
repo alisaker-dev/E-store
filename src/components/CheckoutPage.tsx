@@ -34,24 +34,24 @@ const CheckoutPage = () => {
         </Link>
       </div>
       <Show when="signed-out">
-        <div className="rounded border bg-blue-100 p-5">
+        <div className="surface-card rounded border p-5">
           <p className="mb-4">
             Please sign in before completing your purchase.
           </p>
           <SignInButton mode="modal" fallbackRedirectUrl="/checkout">
-            <button className="w-full rounded bg-blue-600 px-5 py-3 text-white hover:bg-blue-700">
+            <button className="primary-action w-full rounded px-5 py-3 text-white">
               Sign in to continue
             </button>
           </SignInButton>
         </div>
       </Show>
       <Show when="signed-in">
-        <div className="rounded border bg-white p-5">
+        <div className="surface-card rounded border p-5">
           <p className="mb-4">Items: {items.length}</p>
           <p className="mb-6 text-xl font-bold">Total: ${total.toFixed(2)}</p>
           <button
             onClick={handlePurchase}
-            className="w-full rounded bg-blue-600 px-5 py-3 text-white hover:bg-blue-700"
+            className="primary-action w-full rounded px-5 py-3 text-white"
           >
             Confirm purchase
           </button>

@@ -31,7 +31,7 @@ const CartPage = () => {
         {items.map((item) => (
           <div
             key={item.id}
-            className="flex flex-wrap items-center gap-4 rounded border bg-blue-100 p-4"
+            className="surface-card flex flex-wrap items-center gap-4 rounded border p-4"
           >
             <img
               src={item.images[0]}
@@ -65,7 +65,7 @@ const CartPage = () => {
         <strong className="text-xl">Total: ${total.toFixed(2)}</strong>
         <button
           onClick={() => navigate("/checkout")}
-          className="rounded bg-black px-5 py-3 text-white hover:bg-gray-800"
+          className="primary-action rounded px-5 py-3 text-white"
         >
           Buy now
         </button>
